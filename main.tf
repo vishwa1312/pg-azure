@@ -16,10 +16,18 @@ resource "random_password" "password" {
   length           = 16
 }
 
+variable "resource_group_name" {
+  type = string
+}
+
+variable "location" {
+  type = string
+}
+
 resource "azurerm_postgresql_server" "todolist-db" {
   name                = "todolist-db1312"
-  location            = "eastasia"
-  resource_group_name = "vhiremath-test"
+  location            = var.location
+  resource_group_name = var.resource_group_name
 
   administrator_login          = "postgres"
   administrator_login_password = random_password.password.result
