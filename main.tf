@@ -17,7 +17,7 @@ resource "random_password" "password" {
 }
 
 resource "azurerm_postgresql_server" "todolist-db" {
-  name                = "todolist-db"
+  name                = "todolist-db1312"
   location            = "eastasia"
   resource_group_name = "vhiremath-test"
 
