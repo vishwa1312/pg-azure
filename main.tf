@@ -12,10 +12,6 @@ variable "context" {
   type = any
 }
 
-data "azurerm_resource_group" "radius_provided-rg" {
-  name = var.context.azure.resourceGroup
-}
-
 resource "random_password" "password" {
   length           = 16
 }
@@ -23,7 +19,7 @@ resource "random_password" "password" {
 resource "azurerm_postgresql_server" "todolist-db" {
   name                = "todolist-db"
   location            = "eastasia"
-  resource_group_name = data.azurerm_resource_group.radius_provided-rg.name
+  resource_group_name = "vhiremath-test"
 
   administrator_login          = "postgres"
   administrator_login_password = random_password.password.result
