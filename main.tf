@@ -22,7 +22,7 @@ resource "random_password" "password" {
 
 resource "azurerm_postgresql_server" "todolist-db" {
   name                = "todolist-db"
-  location            = data.azurerm_resource_group.radius_provided-rg.location
+  location            = "eastasia"
   resource_group_name = data.azurerm_resource_group.radius_provided-rg.name
 
   administrator_login          = "postgres"
